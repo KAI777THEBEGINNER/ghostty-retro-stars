@@ -1,0 +1,15 @@
+# Ghostty 自定义 Shader 配置
+background = #000000
+# 调整背景透明度 (0.0 是完全透明，1.0 是完全不透明)
+# 推荐值：0.85 到 0.95 之间，你可以根据喜好微调
+background-opacity = 0.9
+
+# 开启毛玻璃模糊效果 (只在支持的系统上生效，如 macOS)
+# 取值范围通常是 0 到 100，也可以设为 true (使用默认模糊)
+background-blur-radius = 20
+
+# 按序链式生效: cursor_blaze -> bettercrt -> starfield_downloaded
+
+custom-shader = ~/.config/ghostty/shaders/shader.glsl
+custom-shader = ~/.config/ghostty/custom_shader/bettercrt.glsl
+custom-shader = ~/.config/ghostty/custom_shader/starfield_downloaded.glsl
