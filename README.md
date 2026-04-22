@@ -39,7 +39,15 @@ cp zellij/config.kdl ~/.config/zellij/
 cp -r helix ~/.config/
 ```
 
+然后，将 `zsh/zshrc.zsh` 的内容追加到 `~/.zshrc` 末尾：
+
+```bash
+cat zsh/zshrc.zsh >> ~/.zshrc
+```
+
 > 注：Zellij 配置中核心需求是在文件顶部包含 `default_layout "compact"`，其余内容为可选的键位绑定。
+>
+> **重要**：不要直接 `eval "$(zellij setup --generate-auto-start zsh)"`！这会破坏多窗口独立 session 的逻辑。请使用本仓库提供的 `zsh/zshrc.zsh` 方案。
 
 ## 配置说明
 
@@ -49,6 +57,7 @@ cp -r helix ~/.config/
 | `ghostty/custom_shader/cursor_blaze.glsl` | 光标移动尾迹效果 |
 | `ghostty/custom_shader/bettercrt.glsl` | CRT 老电视效果（增强参数版） |
 | `ghostty/custom_shader/starfield.glsl` | 3D 星空背景（已强制追加 `fragColor.a = 0.85`） |
+| `zsh/zshrc.zsh` | Zellij 自动启动逻辑：每个 Ghostty 窗口独立 session，自动清理旧 session |
 | `zellij/config.kdl` | Zellij 紧凑布局，无边框底色遮挡 |
 | `helix/config.toml` | Helix 使用透明主题 |
 | `helix/themes/mytrans.toml` | 继承默认主题但抽空背景色 |
